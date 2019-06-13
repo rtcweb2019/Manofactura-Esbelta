@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Evaluacion del Primer Libro</title>
+</head>
+<body>
+	<h1>EVALUACION DEL PRIMER LIBRO</h1>
+
+	<form onsubmit="return validar()">
+		<fieldset>
+			<legend>*********</legend>
+				<div style="text-align:center">
+					<p >
+					1. La metodologia Seis Sigma utiliza herramientas estadisticas para mejorar la calidad?
+					<br>
+
+						<input type="radio" name="action"> VERDADERO
+           				<input type="radio" name="action"> FALSO
+           				<br>
+           			2. Una cadena de valor	son todas las actividades que agreagan valor y no agreagan valor, requeridas para diseñar, ordenar y proveer  un producto o valor a traves del flujo de produccion?
+           			<br>
+           			3. La integracion de las 5s satisface multiples objetivos, marque la respuesta (s) correctas
+
+
+						<input type="radio" name="action"> VERDADERO
+           				<input type="radio" name="action"> FALSO
+
+						<input type="radio" name="action"> VERDADERO
+           				<input type="radio" name="action"> FALSO
+					
+                    </p>			
+
+					<button>Enviar Respuestas</button>
+				</div>
+		</fieldset>
+	</form>
+
+
+
+
+	<input type="text" id="texto" placeholder="respuesta" onkeypress="mostrar()">
+
+	<!-- <img id='banner' src="img/1.jpg" alt=""> -->
+<h1 id="resultado">Tu Resultado</h1>
+/**/
+	<script>
+		var num1 = document.getElementById('num1')
+		var num2 = document.getElementById('num2')
+		var titulo = document.getElementById('resultado')
+
+		var mult = document.getElementById('mult')
+		var divi = document.getElementById('divi')
+
+		var img = document.getElementById('banner')
+
+		var n = document.getElementById('nombre')
+		var c = document.getElementById('ci')
+		var e = document.getElementById('email')
+		var op1 = document.getElementById('op1')
+		var op2 = document.getElementById('op2')
+
+
+		function validar() {
+			// if (n.value === 'oso') {
+			// 	alert('muy corto');
+			// 	return false;
+			// }
+			// return true;
+
+			// return (n.value === 'oso')
+			return op1.checked
+		}
+
+		// mult.addEventListener('click',function () {
+		// 	console.log('me hiciste click');
+		// })
+
+		// EVENTOS DEL RATON
+		// click
+		// dblclick
+		// mouseover
+		// mouseout
+
+		mult.addEventListener('dblclick', multiplicar)
+
+		divi.addEventListener('mouseout',dividir)
+
+		function sumar() {
+			// num1.value -> String
+			var res = parseInt(num1.value) + parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+
+		}
+
+		function restar() {
+			var res = parseInt(num1.value) - parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+			clearInterval(intervalo)
+		}
+
+		function multiplicar() {
+			var res = parseInt(num1.value) * parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+		}
+
+		function dividir() {
+			var res = parseInt(num1.value) / parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+		}
+
+
+
+		function mostrar(){
+			var texto = document.getElementById('texto')
+			console.log(texto.value);
+		}
+
+		function imagenes(){
+			var listaImg = ['img/1.jpg'
+			,'img/2.jpg',
+			'img/3.png',
+			'img/4.png',
+			'img/5.jpg'];
+			// img.src = 'http://lorempixel.com/'+getRandomArbitrary(100,200)+'/'+getRandomArbitrary(100,200)+'/'
+
+			img.src = listaImg[getRandomArbitrary(1,5)]
+		}
+
+		// var intervalo = setInterval(imagenes, 3000)
+
+		function getRandomArbitrary(min, max) {
+  		return parseInt(Math.random() * (max - min) + min);
+	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos</title>
+</head>
+<body>
+	<input type="number" placeholder="num1" id="num1">
+	+
+	<input type="number" placeholder="num2" id="num2">
+	
+	<button onclick="sumar()">sumar</button>
+	<button onclick="restar()">restar</button>
+	<button id="mult">multiplicar</button>
+	<button id="divi">dividir</button>
+
+	<h1 id="resultado">resultado</h1>
+
+	<input type="text" id="texto" placeholder="texto" onkeypress="mostrar()">
+
+	<!-- <img id='banner' src="img/1.jpg" alt=""> -->
+
+	<form onsubmit="return validar()">
+		<fieldset>
+			<legend>Registro</legend>
+			<input type="text" placeholder="dato" id="nombre">
+			<input type="text" placeholder="dato" id="ci">
+			<input type="checkbox" id="op1">OP1
+			<input type="checkbox" id="op2">OP2
+
+			<input type="">
+			<button>enviar</button>
+		</fieldset>
+	</form>
+	<script>
+		var num1 = document.getElementById('num1')
+		var num2 = document.getElementById('num2')
+		var titulo = document.getElementById('resultado')
+
+		var mult = document.getElementById('mult')
+		var divi = document.getElementById('divi')
+
+		var img = document.getElementById('banner')
+
+		var n = document.getElementById('nombre')
+		var c = document.getElementById('ci')
+		var e = document.getElementById('email')
+		var op1 = document.getElementById('op1')
+		var op2 = document.getElementById('op2')
+
+
+		function validar() {
+			// if (n.value === 'oso') {
+			// 	alert('muy corto');
+			// 	return false;
+			// }
+			// return true;
+
+			// return (n.value === 'oso')
+			return op1.checked
+		}
+
+		// mult.addEventListener('click',function () {
+		// 	console.log('me hiciste click');
+		// })
+
+		// EVENTOS DEL RATON
+		// click
+		// dblclick
+		// mouseover
+		// mouseout
+
+		mult.addEventListener('dblclick', multiplicar)
+
+		divi.addEventListener('mouseout',dividir)
+
+		function sumar() {
+			// num1.value -> String
+			var res = parseInt(num1.value) + parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+
+		}
+
+		function restar() {
+			var res = parseInt(num1.value) - parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+			clearInterval(intervalo)
+		}
+
+		function multiplicar() {
+			var res = parseInt(num1.value) * parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+		}
+
+		function dividir() {
+			var res = parseInt(num1.value) / parseInt(num2.value)
+			console.log(res);
+			titulo.innerHTML = res
+		}
+
+
+
+		function mostrar(){
+			var texto = document.getElementById('texto')
+			console.log(texto.value);
+		}
+
+		function imagenes(){
+			var listaImg = ['img/1.jpg'
+			,'img/2.jpg',
+			'img/3.png',
+			'img/4.png',
+			'img/5.jpg'];
+			// img.src = 'http://lorempixel.com/'+getRandomArbitrary(100,200)+'/'+getRandomArbitrary(100,200)+'/'
+
+			img.src = listaImg[getRandomArbitrary(1,5)]
+		}
+
+		// var intervalo = setInterval(imagenes, 3000)
+
+		function getRandomArbitrary(min, max) {
+  		return parseInt(Math.random() * (max - min) + min);
+	}
+
+	</script>
+</body>
+</html>
